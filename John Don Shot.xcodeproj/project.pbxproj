@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AC2BB611208117DC006941EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB610208117DC006941EA /* AppDelegate.swift */; };
 		AC2BB619208117DC006941EA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB618208117DC006941EA /* GameViewController.swift */; };
-		AC2BB61E208117DC006941EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2BB61D208117DC006941EA /* Assets.xcassets */; };
 		AC2BB621208117DC006941EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2BB61F208117DC006941EA /* LaunchScreen.storyboard */; };
 		AC2BB62920811EB6006941EA /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB62820811EB6006941EA /* MainMenu.swift */; };
 		AC2BB62B20812561006941EA /* JDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB62A20812561006941EA /* JDButton.swift */; };
@@ -22,13 +21,13 @@
 		AC2BB6D7208159870081E6A2 /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */; };
 		AC2BB6E020815C1C0081E6A2 /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC2BB6DC20815C1C0081E6A2 /* BackgroundMusic.mp3 */; };
 		AC2BB6E320815C1C0081E6A2 /* Tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC2BB6DF20815C1C0081E6A2 /* Tap.wav */; };
+		AC80D6092083DDC1008D37E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC80D6082083DDC1008D37E5 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC2BB60D208117DC006941EA /* John Don Shot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "John Don Shot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2BB610208117DC006941EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC2BB618208117DC006941EA /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		AC2BB61D208117DC006941EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC2BB620208117DC006941EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC2BB622208117DC006941EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC2BB62820811EB6006941EA /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
 		AC2BB6DC20815C1C0081E6A2 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
 		AC2BB6DF20815C1C0081E6A2 /* Tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tap.wav; sourceTree = "<group>"; };
+		AC80D6082083DDC1008D37E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,21 +76,18 @@
 		AC2BB60F208117DC006941EA /* John Don Shot */ = {
 			isa = PBXGroup;
 			children = (
+				AC80D6082083DDC1008D37E5 /* Assets.xcassets */,
+				AC80D6072083C732008D37E5 /* Classi */,
+				AC80D60A2083F5A6008D37E5 /* Screen */,
 				AC2BB6DC20815C1C0081E6A2 /* BackgroundMusic.mp3 */,
 				AC2BB6DF20815C1C0081E6A2 /* Tap.wav */,
 				AC2BB610208117DC006941EA /* AppDelegate.swift */,
 				AC2BB618208117DC006941EA /* GameViewController.swift */,
-				AC2BB61D208117DC006941EA /* Assets.xcassets */,
 				AC2BB61F208117DC006941EA /* LaunchScreen.storyboard */,
-				AC2BB622208117DC006941EA /* Info.plist */,
-				AC2BB62A20812561006941EA /* JDButton.swift */,
 				AC2BB62C2081267C006941EA /* JDSManager.swift */,
-				AC2BB6C720814ED00081E6A2 /* Extension.swift */,
 				AC2BB6C9208154C20081E6A2 /* JDSPlayerStats.swift */,
-				AC2BB62820811EB6006941EA /* MainMenu.swift */,
-				AC2BB6CE208156830081E6A2 /* GameOver.swift */,
-				AC2BB6D0208157210081E6A2 /* GamePlay.swift */,
-				AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */,
+				AC2BB6C720814ED00081E6A2 /* Extension.swift */,
+				AC2BB622208117DC006941EA /* Info.plist */,
 			);
 			path = "John Don Shot";
 			sourceTree = "<group>";
@@ -101,6 +98,25 @@
 				AC2BB6CC208155930081E6A2 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC80D6072083C732008D37E5 /* Classi */ = {
+			isa = PBXGroup;
+			children = (
+				AC2BB62A20812561006941EA /* JDButton.swift */,
+			);
+			name = Classi;
+			sourceTree = "<group>";
+		};
+		AC80D60A2083F5A6008D37E5 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC2BB62820811EB6006941EA /* MainMenu.swift */,
+				AC2BB6D0208157210081E6A2 /* GamePlay.swift */,
+				AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */,
+				AC2BB6CE208156830081E6A2 /* GameOver.swift */,
+			);
+			name = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,9 +179,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC2BB61E208117DC006941EA /* Assets.xcassets in Resources */,
 				AC2BB621208117DC006941EA /* LaunchScreen.storyboard in Resources */,
 				AC2BB6E320815C1C0081E6A2 /* Tap.wav in Resources */,
+				AC80D6092083DDC1008D37E5 /* Assets.xcassets in Resources */,
 				AC2BB6E020815C1C0081E6A2 /* BackgroundMusic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
