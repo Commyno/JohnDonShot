@@ -19,9 +19,15 @@
 		AC2BB6CF208156830081E6A2 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6CE208156830081E6A2 /* GameOver.swift */; };
 		AC2BB6D1208157210081E6A2 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6D0208157210081E6A2 /* GamePlay.swift */; };
 		AC2BB6D7208159870081E6A2 /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */; };
-		AC2BB6E020815C1C0081E6A2 /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC2BB6DC20815C1C0081E6A2 /* BackgroundMusic.mp3 */; };
-		AC2BB6E320815C1C0081E6A2 /* Tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC2BB6DF20815C1C0081E6A2 /* Tap.wav */; };
 		AC80D6092083DDC1008D37E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC80D6082083DDC1008D37E5 /* Assets.xcassets */; };
+		ACB524F7208A1009003765C4 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524F6208A1009003765C4 /* GameInfo.swift */; };
+		ACB524F9208A1141003765C4 /* JDSAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */; };
+		ACB524FB208A135C003765C4 /* HUDBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524FA208A135C003765C4 /* HUDBar.swift */; };
+		ACB524FF208A3B9A003765C4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524FE208A3B9A003765C4 /* Map.swift */; };
+		ACB52501208A49AA003765C4 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB52500208A49AA003765C4 /* Global.swift */; };
+		ACB52506208B4A62003765C4 /* Map.atlas in Resources */ = {isa = PBXBuildFile; fileRef = ACB52505208B4A62003765C4 /* Map.atlas */; };
+		ACB52508208C87BB003765C4 /* JDAVAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB52507208C87BB003765C4 /* JDAVAudio.swift */; };
+		ACB5250B208D4600003765C4 /* userinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB5250A208D4600003765C4 /* userinfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +45,15 @@
 		AC2BB6CE208156830081E6A2 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 		AC2BB6D0208157210081E6A2 /* GamePlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
 		AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
-		AC2BB6DC20815C1C0081E6A2 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
-		AC2BB6DF20815C1C0081E6A2 /* Tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tap.wav; sourceTree = "<group>"; };
 		AC80D6082083DDC1008D37E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACB524F6208A1009003765C4 /* GameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameInfo.swift; path = ../GameInfo.swift; sourceTree = "<group>"; };
+		ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSAccountInfo.swift; sourceTree = "<group>"; };
+		ACB524FA208A135C003765C4 /* HUDBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDBar.swift; sourceTree = "<group>"; };
+		ACB524FE208A3B9A003765C4 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		ACB52500208A49AA003765C4 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		ACB52505208B4A62003765C4 /* Map.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Map.atlas; path = Resources/Images/Atlas/Map.atlas; sourceTree = "<group>"; };
+		ACB52507208C87BB003765C4 /* JDAVAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDAVAudio.swift; sourceTree = "<group>"; };
+		ACB5250A208D4600003765C4 /* userinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userinfo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,18 +88,18 @@
 		AC2BB60F208117DC006941EA /* John Don Shot */ = {
 			isa = PBXGroup;
 			children = (
+				ACB52502208B46F3003765C4 /* Resources */,
 				AC80D6082083DDC1008D37E5 /* Assets.xcassets */,
+				ACB52509208D00A8003765C4 /* Oggetti */,
 				AC80D6072083C732008D37E5 /* Classi */,
 				AC80D60A2083F5A6008D37E5 /* Screen */,
-				AC2BB6DC20815C1C0081E6A2 /* BackgroundMusic.mp3 */,
-				AC2BB6DF20815C1C0081E6A2 /* Tap.wav */,
 				AC2BB610208117DC006941EA /* AppDelegate.swift */,
 				AC2BB618208117DC006941EA /* GameViewController.swift */,
 				AC2BB61F208117DC006941EA /* LaunchScreen.storyboard */,
 				AC2BB62C2081267C006941EA /* JDSManager.swift */,
 				AC2BB6C9208154C20081E6A2 /* JDSPlayerStats.swift */,
-				AC2BB6C720814ED00081E6A2 /* Extension.swift */,
 				AC2BB622208117DC006941EA /* Info.plist */,
+				ACB5250A208D4600003765C4 /* userinfo.plist */,
 			);
 			path = "John Don Shot";
 			sourceTree = "<group>";
@@ -103,7 +115,12 @@
 		AC80D6072083C732008D37E5 /* Classi */ = {
 			isa = PBXGroup;
 			children = (
-				AC2BB62A20812561006941EA /* JDButton.swift */,
+				AC2BB6C720814ED00081E6A2 /* Extension.swift */,
+				ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */,
+				ACB524F6208A1009003765C4 /* GameInfo.swift */,
+				ACB524FA208A135C003765C4 /* HUDBar.swift */,
+				ACB524FE208A3B9A003765C4 /* Map.swift */,
+				ACB52500208A49AA003765C4 /* Global.swift */,
 			);
 			name = Classi;
 			sourceTree = "<group>";
@@ -117,6 +134,39 @@
 				AC2BB6CE208156830081E6A2 /* GameOver.swift */,
 			);
 			name = Screen;
+			sourceTree = "<group>";
+		};
+		ACB52502208B46F3003765C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ACB52503208B4706003765C4 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		ACB52503208B4706003765C4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				ACB52504208B4713003765C4 /* Atlas */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		ACB52504208B4713003765C4 /* Atlas */ = {
+			isa = PBXGroup;
+			children = (
+				ACB52505208B4A62003765C4 /* Map.atlas */,
+			);
+			name = Atlas;
+			sourceTree = "<group>";
+		};
+		ACB52509208D00A8003765C4 /* Oggetti */ = {
+			isa = PBXGroup;
+			children = (
+				ACB52507208C87BB003765C4 /* JDAVAudio.swift */,
+				AC2BB62A20812561006941EA /* JDButton.swift */,
+			);
+			name = Oggetti;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC2BB621208117DC006941EA /* LaunchScreen.storyboard in Resources */,
-				AC2BB6E320815C1C0081E6A2 /* Tap.wav in Resources */,
+				ACB52506208B4A62003765C4 /* Map.atlas in Resources */,
 				AC80D6092083DDC1008D37E5 /* Assets.xcassets in Resources */,
-				AC2BB6E020815C1C0081E6A2 /* BackgroundMusic.mp3 in Resources */,
+				ACB5250B208D4600003765C4 /* userinfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,13 +244,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC2BB62B20812561006941EA /* JDButton.swift in Sources */,
+				ACB52508208C87BB003765C4 /* JDAVAudio.swift in Sources */,
 				AC2BB6C820814ED00081E6A2 /* Extension.swift in Sources */,
 				AC2BB6CF208156830081E6A2 /* GameOver.swift in Sources */,
 				AC2BB619208117DC006941EA /* GameViewController.swift in Sources */,
 				AC2BB6D1208157210081E6A2 /* GamePlay.swift in Sources */,
+				ACB524FB208A135C003765C4 /* HUDBar.swift in Sources */,
+				ACB524F9208A1141003765C4 /* JDSAccountInfo.swift in Sources */,
 				AC2BB6CA208154C20081E6A2 /* JDSPlayerStats.swift in Sources */,
+				ACB52501208A49AA003765C4 /* Global.swift in Sources */,
 				AC2BB611208117DC006941EA /* AppDelegate.swift in Sources */,
 				AC2BB62D2081267C006941EA /* JDSManager.swift in Sources */,
+				ACB524FF208A3B9A003765C4 /* Map.swift in Sources */,
+				ACB524F7208A1009003765C4 /* GameInfo.swift in Sources */,
 				AC2BB6D7208159870081E6A2 /* SettingsMenu.swift in Sources */,
 				AC2BB62920811EB6006941EA /* MainMenu.swift in Sources */,
 			);
