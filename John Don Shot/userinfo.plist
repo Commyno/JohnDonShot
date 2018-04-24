@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>VolumeEffect</key>
+	<integer>10</integer>
+	<key>VolumeMusic</key>
+	<integer>10</integer>
+	<key>EffectOn</key>
+	<true/>
+	<key>MusicOn</key>
+	<true/>
+	<key>Coin</key>
+	<integer>0</integer>
+	<key>Experience</key>
+	<integer>0</integer>
+	<key>Highscore</key>
+	<integer>0</integer>
+	<key>Level</key>
+	<integer>0</integer>
+</dict>
+</plist>

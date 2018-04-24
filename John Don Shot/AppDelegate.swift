@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        let gameViewController = GameViewController()
+        window?.rootViewController = gameViewController
+        
+        
         return true
     }
 
@@ -41,6 +49,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func shouldDisplayInterstitial(_ location: String!) -> Bool {
+        NotificationCenter.default.post(name: stopBackgroundMusicNotificationName, object: nil, userInfo: nil)
+        return true
+    }
+    
+    func didDismissInterstitial(_ location: String!) {
+        NotificationCenter.default.post(name: startBackgroundMusicNotificationName, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: startGameplayNotificationName, object: nil, userInfo: nil)
+    }
+    
+    func didCloseInterstitial(_ location: String!) {
+        NotificationCenter.default.post(name: startBackgroundMusicNotificationName, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: startGameplayNotificationName, object: nil, userInfo: nil)
+    }
+    
+    func didClickInterstitial(_ location: String!) {
+        NotificationCenter.default.post(name: startBackgroundMusicNotificationName, object: nil, userInfo: nil)
+    }
 }
 
