@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2754FE2096737000BD163D /* Note.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AC2754FD2096737000BD163D /* Note.rtf */; };
 		AC2BB611208117DC006941EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB610208117DC006941EA /* AppDelegate.swift */; };
 		AC2BB619208117DC006941EA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB618208117DC006941EA /* GameViewController.swift */; };
 		AC2BB621208117DC006941EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2BB61F208117DC006941EA /* LaunchScreen.storyboard */; };
@@ -14,11 +15,11 @@
 		AC2BB62B20812561006941EA /* JDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB62A20812561006941EA /* JDButton.swift */; };
 		AC2BB62D2081267C006941EA /* JDSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB62C2081267C006941EA /* JDSManager.swift */; };
 		AC2BB6C820814ED00081E6A2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6C720814ED00081E6A2 /* Extension.swift */; };
-		AC2BB6CA208154C20081E6A2 /* JDSPlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6C9208154C20081E6A2 /* JDSPlayerStats.swift */; };
 		AC2BB6CD208155930081E6A2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2BB6CC208155930081E6A2 /* AVFoundation.framework */; };
 		AC2BB6CF208156830081E6A2 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6CE208156830081E6A2 /* GameOver.swift */; };
 		AC2BB6D1208157210081E6A2 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6D0208157210081E6A2 /* GamePlay.swift */; };
 		AC2BB6D7208159870081E6A2 /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */; };
+		AC3BFE0B2096530C0044DF06 /* JDSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BFE0A2096530C0044DF06 /* JDSlider.swift */; };
 		AC80D6092083DDC1008D37E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC80D6082083DDC1008D37E5 /* Assets.xcassets */; };
 		ACB524F7208A1009003765C4 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524F6208A1009003765C4 /* GameInfo.swift */; };
 		ACB524F9208A1141003765C4 /* JDSAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC2754FD2096737000BD163D /* Note.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Note.rtf; sourceTree = "<group>"; };
 		AC2BB60D208117DC006941EA /* John Don Shot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "John Don Shot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2BB610208117DC006941EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC2BB618208117DC006941EA /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -40,11 +42,11 @@
 		AC2BB62A20812561006941EA /* JDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDButton.swift; sourceTree = "<group>"; };
 		AC2BB62C2081267C006941EA /* JDSManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSManager.swift; sourceTree = "<group>"; };
 		AC2BB6C720814ED00081E6A2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		AC2BB6C9208154C20081E6A2 /* JDSPlayerStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSPlayerStats.swift; sourceTree = "<group>"; };
 		AC2BB6CC208155930081E6A2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AC2BB6CE208156830081E6A2 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 		AC2BB6D0208157210081E6A2 /* GamePlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
 		AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
+		AC3BFE0A2096530C0044DF06 /* JDSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSlider.swift; sourceTree = "<group>"; };
 		AC80D6082083DDC1008D37E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACB524F6208A1009003765C4 /* GameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameInfo.swift; path = ../GameInfo.swift; sourceTree = "<group>"; };
 		ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSAccountInfo.swift; sourceTree = "<group>"; };
@@ -96,10 +98,9 @@
 				AC2BB610208117DC006941EA /* AppDelegate.swift */,
 				AC2BB618208117DC006941EA /* GameViewController.swift */,
 				AC2BB61F208117DC006941EA /* LaunchScreen.storyboard */,
-				AC2BB62C2081267C006941EA /* JDSManager.swift */,
-				AC2BB6C9208154C20081E6A2 /* JDSPlayerStats.swift */,
 				AC2BB622208117DC006941EA /* Info.plist */,
 				ACB5250A208D4600003765C4 /* userinfo.plist */,
+				AC2754FD2096737000BD163D /* Note.rtf */,
 			);
 			path = "John Don Shot";
 			sourceTree = "<group>";
@@ -121,6 +122,7 @@
 				ACB524FA208A135C003765C4 /* HUDBar.swift */,
 				ACB524FE208A3B9A003765C4 /* Map.swift */,
 				ACB52500208A49AA003765C4 /* Global.swift */,
+				AC2BB62C2081267C006941EA /* JDSManager.swift */,
 			);
 			name = Classi;
 			sourceTree = "<group>";
@@ -165,6 +167,7 @@
 			children = (
 				ACB52507208C87BB003765C4 /* JDAVAudio.swift */,
 				AC2BB62A20812561006941EA /* JDButton.swift */,
+				AC3BFE0A2096530C0044DF06 /* JDSlider.swift */,
 			);
 			name = Oggetti;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2754FE2096737000BD163D /* Note.rtf in Resources */,
 				AC2BB621208117DC006941EA /* LaunchScreen.storyboard in Resources */,
 				ACB52506208B4A62003765C4 /* Map.atlas in Resources */,
 				AC80D6092083DDC1008D37E5 /* Assets.xcassets in Resources */,
@@ -251,9 +255,9 @@
 				AC2BB6D1208157210081E6A2 /* GamePlay.swift in Sources */,
 				ACB524FB208A135C003765C4 /* HUDBar.swift in Sources */,
 				ACB524F9208A1141003765C4 /* JDSAccountInfo.swift in Sources */,
-				AC2BB6CA208154C20081E6A2 /* JDSPlayerStats.swift in Sources */,
 				ACB52501208A49AA003765C4 /* Global.swift in Sources */,
 				AC2BB611208117DC006941EA /* AppDelegate.swift in Sources */,
+				AC3BFE0B2096530C0044DF06 /* JDSlider.swift in Sources */,
 				AC2BB62D2081267C006941EA /* JDSManager.swift in Sources */,
 				ACB524FF208A3B9A003765C4 /* Map.swift in Sources */,
 				ACB524F7208A1009003765C4 /* GameInfo.swift in Sources */,
