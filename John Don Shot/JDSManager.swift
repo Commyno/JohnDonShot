@@ -12,14 +12,26 @@ import SpriteKit
 //let AppId = "123456"
 //let chartboostAppID = "5a3cfaf8e6d7050d5c5c6dce"
 //let chartboostAppSignature = "97a43ed515d78826130881e8c0eed747185d0d74"
+let kMusicState = "kMusicState"
+let kEffectState = "kEffectState"
+let kMusicVolume = "kMusicVolume"
+let kEffectVolume = "kEffectVolume"
 
 class JDSManager {
     
     enum SceneType {
         case MainMenu, Gameplay, GameOver, SettingsMenu
     }
-    
-    private init() {}
+
+    // Audio
+    var mainAudio:JDAVAudio
+    var effectAudio:JDAVAudio
+
+    // Init
+    private init() {
+        mainAudio = JDAVAudio()
+        effectAudio = JDAVAudio()
+    }
     static let shared = JDSManager()
     
     public func launch() {
@@ -30,13 +42,19 @@ class JDSManager {
         if !UserDefaults.standard.bool(forKey: "isFirstLaunch") {
             
             print("This is our first launch")
-            JDSPlayerStats.shared.setSounds(true)
-            JDSPlayerStats.shared.saveMusicVolume(0.7)
-            JDSPlayerStats.shared.setEffects(true)
-            JDSPlayerStats.shared.saveEffectVolume(0.7)
             
+            // Init UserDefault
+            UserDefaults.standard.set(true, forKey: kMusicState)
+            UserDefaults.standard.set(true, forKey: kEffectState)
+            UserDefaults.standard.set(10, forKey: kMusicVolume)
+            UserDefaults.standard.set(10, forKey: kEffectVolume)
             UserDefaults.standard.set(true, forKey: "isFirstLaunch")
             UserDefaults.standard.synchronize()
+
+            // Init Audio
+            mainAudio = JDAVAudio()
+            effectAudio = JDAVAudio()
+
         }
     }
     
@@ -66,14 +84,6 @@ class JDSManager {
         }
     }
     
-    func runEffect(_ fileName: String) {
-        if JDSPlayerStats.shared.getSound() {
-            
-            let fileToPlay: [String: String] = ["fileToPlay": fileName ]
-            //NotificationCenter.default.post(name:startEffectSoundNotificationName, object: self, userInfo:fileToPlay)
-        }
-    }
-    
     func showAlert(on scene: SKScene, title: String, message: String, preferredStyle: UIAlertControllerStyle = .alert, actions: [UIAlertAction], animated: Bool = true, delay: Double = 0.0, completion: (() -> Swift.Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         
@@ -86,6 +96,22 @@ class JDSManager {
             scene.view?.window?.rootViewController?.present(alert, animated: animated, completion: completion)
         }
         
+    }
+
+    func initAudio() -> ErrorReturnCode {
+        
+        // Music
+        if !mainAudio.load(fileToPlay: Global.MusicBackgroungType.BackgroundMusic.rawValue,
+                          estensione: mp3MusicExtension,
+                          volume: UserDefaults.standard.float(forKey: kMusicVolume)){
+            return (false, "load music error")
+        }
+        mainAudio.play(numberOfLoops: -1)
+
+        // Effect
+        effectAudio.setVolume(volume: UserDefaults.standard.float(forKey: kEffectVolume))
+ 
+        return (true, "No error")
     }
     
     func share(on scene: SKScene, text: String, image: UIImage?, exculdeActivityTypes: [UIActivityType] ) {

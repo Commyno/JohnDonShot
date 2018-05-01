@@ -66,16 +66,20 @@ class GameViewController: UIViewController {
     private var defaultPlist = NSMutableDictionary()
     private var clientData = NSMutableDictionary()
 
+    //
+    // DidLoad
+    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("--Start--")
         
         // Notification
-        addNotificationObservers()
-        JDSManager.shared.launch()
-        loadingScene() // Progress Scene
-        load()
+        addNotificationObservers()  // Setta tutte le notification
+        JDSManager.shared.launch()  //
+        loadingScene()              // Progress Scene
+        load()                      // Carica l'account utente
 
     }
     
@@ -124,43 +128,53 @@ class GameViewController: UIViewController {
     
     private func load(){
         
+        //Carica el info dal file accountinfo
+        let LoadAccountInfoStatus = loadAccountInfo()
+        if LoadAccountInfoStatus.0 != .Normal {
+            redirect(status: LoadAccountInfoStatus.0, message: LoadAccountInfoStatus.1)
+        }
+            
+        // Se tutto ok
+        redirect(status: .Normal, message: "Success")
+
+    }
+    
+    private func loadAccountInfo() -> (LoadStatus, String) {
+
+        let loadStatus:(LoadStatus, String) = (.Normal, "No errors")
+
         // Caricamento del file originale di userinfo.plist
         let fullPathName = documentDir.appendingPathComponent("userinfo.plist")
         
         guard let sourceFilePath = Bundle.main.path(forResource: "userinfo", ofType: "plist") else{
-            redirect(status: .Critical, message: "Critical001:: userinfo.plist is missing. Please, add it to the main path")
-            return
+            return (.Critical, "Critical001:: userinfo.plist is missing. Please, add it to the main path")
         }
         
         guard let originalPlist = NSMutableDictionary(contentsOfFile:sourceFilePath) else{
-            redirect(status: .Critical, message: "Critical002: Error loading contents of  \(fullPathName)")
-            return
+            return (.Critical, "Critical002: Error loading contents of  \(fullPathName)")
         }
         
         defaultPlist = originalPlist
-
+        
         // Caricamento del file originale di userinfo.plist
         guard let virtualPList = NSMutableDictionary(contentsOfFile: fullPathName) else{
-
+            
             // Se il caricamento non è andato a buon fine provo a ricrearlo
             let fileManager = FileManager.default
             
             if !fileManager.fileExists(atPath: fullPathName){
                 // Il file non esiste lo creo quindi sulla base dell'originale
                 if !originalPlist.write(toFile: fullPathName, atomically: false){
-                    redirect(status: .Critical, message: "FILE FAILED TO SAVE THE CHANGES ---- PLEASE FIX IT IN ViewController")
+                    return (.Critical, "FILE FAILED TO SAVE THE CHANGES ---- PLEASE FIX IT IN ViewController")
                 }
             }
             clientData = originalPlist
-            redirect(status: .Warning, message: "[Notice]: OriginalPlist being used.")
-            return
+            return (.Warning, "[Notice]: OriginalPlist being used.")
         }
         
         clientData = virtualPList
-
-        // Se tutto ok
-        redirect(status: .Normal, message: "Success")
-
+        
+        return loadStatus
     }
     
     private func redirect(status st:LoadStatus, message msg:String){

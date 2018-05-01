@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -39,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -48,24 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    func shouldDisplayInterstitial(_ location: String!) -> Bool {
+    
+    private func removeNotification() {
+        // Audio
+        NotificationCenter.default.post(name: startBackgroundMusicNotificationName, object: nil, userInfo: nil)
         NotificationCenter.default.post(name: stopBackgroundMusicNotificationName, object: nil, userInfo: nil)
-        return true
-    }
-    
-    func didDismissInterstitial(_ location: String!) {
-        NotificationCenter.default.post(name: startBackgroundMusicNotificationName, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: changeVolumeBackgroundMusicNotificationName, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: startSoundEffectNotificationName, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: stopSoundEffectNotificationName, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: changeVolumeSoundEffectNotificationName, object: nil, userInfo: nil)
+        // GamePlay
         NotificationCenter.default.post(name: startGameplayNotificationName, object: nil, userInfo: nil)
-    }
-    
-    func didCloseInterstitial(_ location: String!) {
-        NotificationCenter.default.post(name: startBackgroundMusicNotificationName, object: nil, userInfo: nil)
-        NotificationCenter.default.post(name: startGameplayNotificationName, object: nil, userInfo: nil)
-    }
-    
-    func didClickInterstitial(_ location: String!) {
-        NotificationCenter.default.post(name: startBackgroundMusicNotificationName, object: nil, userInfo: nil)
     }
 }
 
