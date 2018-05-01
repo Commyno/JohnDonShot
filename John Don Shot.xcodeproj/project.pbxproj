@@ -21,7 +21,7 @@
 		AC2BB6D7208159870081E6A2 /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */; };
 		AC3BFE0B2096530C0044DF06 /* JDSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BFE0A2096530C0044DF06 /* JDSlider.swift */; };
 		AC80D6092083DDC1008D37E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC80D6082083DDC1008D37E5 /* Assets.xcassets */; };
-		ACB524F7208A1009003765C4 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524F6208A1009003765C4 /* GameInfo.swift */; };
+		ACAD3B272097628500579E22 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD3B262097628500579E22 /* GameInfo.swift */; };
 		ACB524F9208A1141003765C4 /* JDSAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */; };
 		ACB524FB208A135C003765C4 /* HUDBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524FA208A135C003765C4 /* HUDBar.swift */; };
 		ACB524FF208A3B9A003765C4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB524FE208A3B9A003765C4 /* Map.swift */; };
@@ -48,7 +48,7 @@
 		AC2BB6D6208159870081E6A2 /* SettingsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
 		AC3BFE0A2096530C0044DF06 /* JDSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSlider.swift; sourceTree = "<group>"; };
 		AC80D6082083DDC1008D37E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		ACB524F6208A1009003765C4 /* GameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameInfo.swift; path = ../GameInfo.swift; sourceTree = "<group>"; };
+		ACAD3B262097628500579E22 /* GameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSAccountInfo.swift; sourceTree = "<group>"; };
 		ACB524FA208A135C003765C4 /* HUDBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDBar.swift; sourceTree = "<group>"; };
 		ACB524FE208A3B9A003765C4 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -116,9 +116,9 @@
 		AC80D6072083C732008D37E5 /* Classi */ = {
 			isa = PBXGroup;
 			children = (
+				ACAD3B262097628500579E22 /* GameInfo.swift */,
 				AC2BB6C720814ED00081E6A2 /* Extension.swift */,
 				ACB524F8208A1141003765C4 /* JDSAccountInfo.swift */,
-				ACB524F6208A1009003765C4 /* GameInfo.swift */,
 				ACB524FA208A135C003765C4 /* HUDBar.swift */,
 				ACB524FE208A3B9A003765C4 /* Map.swift */,
 				ACB52500208A49AA003765C4 /* Global.swift */,
@@ -199,7 +199,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Giovanni Tirico";
 				TargetAttributes = {
 					AC2BB60C208117DC006941EA = {
@@ -260,9 +260,9 @@
 				AC3BFE0B2096530C0044DF06 /* JDSlider.swift in Sources */,
 				AC2BB62D2081267C006941EA /* JDSManager.swift in Sources */,
 				ACB524FF208A3B9A003765C4 /* Map.swift in Sources */,
-				ACB524F7208A1009003765C4 /* GameInfo.swift in Sources */,
 				AC2BB6D7208159870081E6A2 /* SettingsMenu.swift in Sources */,
 				AC2BB62920811EB6006941EA /* MainMenu.swift in Sources */,
+				ACAD3B272097628500579E22 /* GameInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,15 +290,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -341,15 +349,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
