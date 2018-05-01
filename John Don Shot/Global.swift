@@ -20,6 +20,10 @@ class Global {
     
     static let sharedInstance = Global()
     
+    enum Animation{
+        case Map_Base
+    }
+    
     // Music
     enum MusicBackgroungType:String{
         case BackgroundMusic = "BackgroundMusic"
@@ -130,6 +134,12 @@ class Global {
         }
     }
 
+    internal func getTextures(textures:Animation) -> [SKTexture]{
+        switch textures{
+        case .Map_Base:
+            return map[.Base]!
+        }
+    }
 }
 
 let global:Global = Global.sharedInstance // Using this Singleton to access all textures

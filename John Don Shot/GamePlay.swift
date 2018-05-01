@@ -10,17 +10,6 @@ import SpriteKit
 
 class Gameplay: SKScene {
     
-    var background: SKSpriteNode = {
-        var sprite = SKSpriteNode(imageNamed: "Background")
-        if DeviceType.isiPad || DeviceType.isiPadPro {
-            sprite.scaleTo(screenWidthPercentage: 1.0)
-        } else {
-            sprite.scaleTo(screenHeightPercentage: 1.0)
-        }
-        sprite.zPosition = 0
-        return sprite
-    }()
-    
     var title: SKLabelNode = {
         var label = SKLabelNode(fontNamed: "Arial-BoldMT")
         label.fontSize = CGFloat.universalFont(size: 24)
@@ -32,6 +21,15 @@ class Gameplay: SKScene {
         return label
     }()
 
+    lazy var returnButton: JDButton = {
+        var button = JDButton(imageNamed: "ButtonBack", buttonAction: {
+            self.returnToMainMenu()
+        })
+        button.scaleTo(screenWithPercentage: 0.1)
+        button.zPosition = 1
+        return button
+    }()
+
     // Variabili
     var gameinfo = GameInfo.shared
 
@@ -41,24 +39,25 @@ class Gameplay: SKScene {
         // Rimuovo tutte le precedenti View
         removeUIViews()
 
-        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        anchorPoint = CGPoint(x: 0.0, y: 0.0)
 
-        loadBackground()
+        setupNodes()
+        addNodes()
         loadgameinfo()
+
+        gameinfo.changeGameState(.Start)
 
     }
     
-    func loadBackground() {
-        
-        // Background
-        background.position = CGPoint(x: ScreenSize.width * 0.5, y: ScreenSize.heigth * 0.5)
-        
+    func setupNodes() {
         // Title
-        title.position = CGPoint(x: ScreenSize.width * 0.5, y: ScreenSize.heigth * 0.5)
-        //title.position = CGPoint(x: ScreenSize.width * 0.0, y: ScreenSize.heigth * 0.25)
+        title.position = CGPoint(x: ScreenSize.width * 0.5, y: ScreenSize.heigth * 0.96)
+        returnButton.position = CGPoint(x: ScreenSize.width * 0.05, y: ScreenSize.heigth * 0.96)
+    }
 
-        addChild(background)
+    func addNodes() {
         addChild(title)
+        addChild(returnButton)
     }
     
     func loadgameinfo() {
@@ -70,6 +69,10 @@ class Gameplay: SKScene {
             return
         }
 
+    }
+
+    func returnToMainMenu() {
+        JDSManager.shared.transition(self, toScene: .MainMenu, transition: SKTransition.moveIn(with: .right, duration: 0.5))
     }
 
     

@@ -29,6 +29,9 @@ class GameInfo: GameInfoDelegate{
 
     // Secondary Variables
     fileprivate var gamestate:GameState
+    
+    // Public Variables
+    var map:Map?
 
     //
     // Init
@@ -44,11 +47,11 @@ class GameInfo: GameInfoDelegate{
     func load(scene: SKScene) -> ErrorReturnCode {
         var loadStatus:ErrorReturnCode = (true, "No errors")
 
+        mainScene = scene
+
         if (gamestate != .NoState) {
             return loadStatus
         }
-
-        mainScene = scene
 
         // load account
         loadStatus = account.load()
@@ -74,7 +77,7 @@ class GameInfo: GameInfoDelegate{
     
     internal func prepareToChangeScene(){
         JDSManager.shared.mainAudio.stop()
-        //map?.prepareToChangeScene()
+        map?.prepareToChangeScene()
         timer?.invalidate()
     }
 
@@ -116,10 +119,21 @@ class GameInfo: GameInfoDelegate{
     }
     
     private func updateGameState(){
+        guard let mainscene = mainScene else{
+            print ("ERROR D00: Check updateGameState() from GameInfo")
+            return
+        }
+
         switch gamestate {
         case .NoState:
             break
         case .Start:
+            // Load Map
+            map = Map(maps: global.getTextures(textures: .Map_Base), scene: mainscene)
+            
+            // Applica una sequeza di azioni
+            self.map!.run()
+
             break
         case .WaitingState:
             break
