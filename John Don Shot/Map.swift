@@ -14,8 +14,13 @@ class Map: NSObject{
     private var timer:Timer?
     
     private var maptextures:[SKTexture]
-    private var singleTexture:SKTexture
+    private var bottomTexture:SKTexture
+    private var topTexture:SKTexture
     private var currIndex:Int
+    private var maxTexture:Int
+    
+    private var topLabel: SKLabelNode
+    private var bottomLabel: SKLabelNode
 
     let top:SKSpriteNode
     let bottom:SKSpriteNode
@@ -26,33 +31,55 @@ class Map: NSObject{
             fatalError("maps should have at least 1 textures.")
         }
 
-        currIndex = randomInt(min: 0, max: maps.count - 1)
+        maxTexture = maps.count
+        currIndex = randomInt(min: 0, max: maxTexture - 1)
         maptextures = maps
-        singleTexture = maptextures[currIndex]
 
+        topLabel = SKLabelNode(text: "prova")
+        bottomLabel = SKLabelNode(text: "prova")
+
+        if maxTexture > 1{
+            bottomTexture = maptextures[0]
+            topTexture = maptextures[1]
+        } else {
+            bottomTexture = maptextures[0]
+            topTexture = maptextures[0]
+        }
         let tsize = CGSize(width: ScreenSize.width, height: ScreenSize.heigth)
 
         // Background
         bottom = SKSpriteNode()
-        bottom.texture = singleTexture
+        bottom.texture = bottomTexture
         bottom.size = tsize
         bottom.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         bottom.position = CGPoint(x: ScreenSize.width/2, y: 0) //bottom.size.height/2)
         bottom.zPosition = -5
+        bottomLabel.position = bottom.position
+        bottomLabel.zPosition = 0
 
         top = SKSpriteNode()
-        top.texture = singleTexture
+        top.texture = topTexture
         top.size = tsize
         top.anchorPoint = CGPoint(x: 0.5, y: 0)
         top.position = CGPoint(x: ScreenSize.width/2, y: bottom.position.y + bottom.size.height)
         top.zPosition = -5
+        topLabel.position = top.position
+        topLabel.zPosition = 0
 
         (top.alpha, bottom.alpha) = (0.0, 0.0)
         print(scene)
         scene.addChild(top)
         scene.addChild(bottom)
+        scene.addChild(topLabel)
+        scene.addChild(bottomLabel)
 
     }
+    
+    private func getNextTexture() -> SKTexture {
+        currIndex = ( currIndex + 1 >= maxTexture ) ? 0 : currIndex + 1
+        return maptextures[currIndex]
+    }
+    
     
     func run(){
         
@@ -72,11 +99,18 @@ class Map: NSObject{
     
     @objc func update(){
         if (bottom.position.y <= -bottom.size.height){
+            bottom.texture = getNextTexture()
             bottom.position.y = top.position.y + top.size.height
+            bottomLabel.text = "Numero: \(currIndex)"
         }
         else if top.position.y <= -top.size.height{
+            top.texture = getNextTexture()
             top.position.y = bottom.position.y + bottom.size.height
+            topLabel.text = "Numero: \(currIndex)"
         }
+        bottomLabel.position = bottom.position
+        topLabel.position = top.position
+
     }
 
     func prepareToChangeScene(){

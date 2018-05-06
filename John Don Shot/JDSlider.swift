@@ -19,8 +19,8 @@ class JDSlider: UISlider {
         super.init(frame: frame)
         
         self.minimumValue = 0.0
-        self.maximumValue = 100.0
-        self.value = 100.0
+        self.maximumValue = 1.0
+        self.value = 1.0
         self.isContinuous = true
 
     }

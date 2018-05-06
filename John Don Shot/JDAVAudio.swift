@@ -108,7 +108,6 @@ class JDAVAudio {
         player?.numberOfLoops = numberOfLoops
         player?.currentTime = 0
         player?.play()
-        let volume = player?.volume
     }
     
     func stop(){

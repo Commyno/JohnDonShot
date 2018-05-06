@@ -45,7 +45,7 @@ class GameInfo: GameInfoDelegate{
     }
     
     func load(scene: SKScene) -> ErrorReturnCode {
-        var loadStatus:ErrorReturnCode = (true, "No errors")
+        var loadStatus:ErrorReturnCode = ErrorReturnCodeOk
 
         mainScene = scene
 
@@ -54,7 +54,7 @@ class GameInfo: GameInfoDelegate{
         }
 
         // load account
-        loadStatus = account.load()
+        loadStatus = loadAccount()
         if (!loadStatus.0) {
             return loadStatus
         }
@@ -71,7 +71,7 @@ class GameInfo: GameInfoDelegate{
         
         gamestate = .WaitingState
         
-        return (true, "No errors")
+        return ErrorReturnCodeOk
 
      }
     
@@ -154,7 +154,7 @@ class GameInfo: GameInfoDelegate{
         }
         
         UserDefaults.standard.set(value, forKey: kScore)
-        UserDefaults.standard.synchronize()
+        //UserDefaults.standard.synchronize()
     }
     
     func getScore() -> Int {
@@ -163,7 +163,7 @@ class GameInfo: GameInfoDelegate{
     
     func setBestScore(_ value: Int) {
         UserDefaults.standard.set(value, forKey: kBestScore)
-        UserDefaults.standard.synchronize()
+        //UserDefaults.standard.synchronize()
     }
     
     func getBestScore() -> Int {
@@ -176,7 +176,7 @@ class GameInfo: GameInfoDelegate{
     
     func setSounds(_ state: Bool, forKey defaultName: String) {
         UserDefaults.standard.set(state, forKey: defaultName)
-        UserDefaults.standard.synchronize()
+        //UserDefaults.standard.synchronize()
 		if (defaultName == kMusicState) {
 			(state) ? JDSManager.shared.mainAudio.play() : JDSManager.shared.mainAudio.stop()
 		}
@@ -191,7 +191,7 @@ class GameInfo: GameInfoDelegate{
     
     func setSoundVolume(_ value: Float, forKey defaultName: String) {
         UserDefaults.standard.set(value, forKey: defaultName)
-        UserDefaults.standard.synchronize()
+        //UserDefaults.standard.synchronize()
 		if (defaultName == kMusicVolume) {
 			JDSManager.shared.mainAudio.setVolume(volume: value)
 		}
@@ -204,6 +204,38 @@ class GameInfo: GameInfoDelegate{
         return UserDefaults.standard.float(forKey: defaultName)
 	}
     
+    func loadAccount() -> ErrorReturnCode{
+        var loadStatus = ErrorReturnCodeOk
+        
+        loadStatus = account.load()
+        if (!loadStatus.0) {
+            return loadStatus
+        }
+
+        UserDefaults.standard.setValue(account.getMusicOn(), forKey: kMusicState)
+        UserDefaults.standard.setValue(account.getEffectOn(), forKey: kEffectState)
+        UserDefaults.standard.setValue(account.getVolumeMusic(), forKey: kMusicVolume)
+        UserDefaults.standard.setValue(account.getVolumeEffect(), forKey: kEffectVolume)
+        
+        return loadStatus
+    }
+
+    func saveAccount() -> ErrorReturnCode{
+        var loadStatus = ErrorReturnCodeOk
+
+        account.setMusicOn(UserDefaults.standard.bool(forKey: kMusicState))
+        account.setEffectOn(UserDefaults.standard.bool(forKey: kEffectState))
+        account.setVolumeMusic(UserDefaults.standard.float(forKey: kMusicVolume))
+        account.setVolumeEffect(UserDefaults.standard.float(forKey: kEffectVolume))
+
+        loadStatus = account.save()
+        if (!loadStatus.0) {
+            return loadStatus
+        }
+
+        return loadStatus
+    }
+
     //
     // Notification Selector
     //

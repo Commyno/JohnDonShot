@@ -139,6 +139,7 @@ class SettingsMenu: SKScene {
     }
 
     func returnToMainMenu() {
+        gameinfo.saveAccount()
         JDSManager.shared.transition(self, toScene: .MainMenu, transition: SKTransition.moveIn(with: .right, duration: 0.5))
     }
     

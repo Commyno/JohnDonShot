@@ -41,6 +41,7 @@ struct DeviceType {
 }
 
 typealias ErrorReturnCode = (Bool, String)
+let ErrorReturnCodeOk: ErrorReturnCode = (true, "No error")
 
 public extension CGFloat {
     public static func universalFont(size: CGFloat) -> CGFloat {

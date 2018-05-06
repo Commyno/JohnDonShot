@@ -49,7 +49,7 @@ class JDSManager {
             UserDefaults.standard.set(10, forKey: kMusicVolume)
             UserDefaults.standard.set(10, forKey: kEffectVolume)
             UserDefaults.standard.set(true, forKey: "isFirstLaunch")
-            UserDefaults.standard.synchronize()
+            //UserDefaults.standard.synchronize()
 
             // Init Audio
             mainAudio = JDAVAudio()

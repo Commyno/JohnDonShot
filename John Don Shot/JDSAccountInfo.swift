@@ -10,22 +10,27 @@ import Foundation
 import SpriteKit
 
 class JDSAccountInfo{
-
+    
     // ----------------------------------------------------------------
     // Inserire di seguito le info relative al gioco che si sta creando
     // che saranno poi salvate e conservate
     // ----------------------------------------------------------------
     
-    // Info di gioco salvate
-    private var level:Int
-    private var experience:CGFloat
-    private var highscore:Int
-    
+    private let kMusicOn = "MusicOn"
+    private let kEffectOn = "EffectOn"
+    private let kVolumeMusic = "VolumeMusic"
+    private let kVolumeEffect = "VolumeEffect"
+
     // Settaggi di gioco salgate
     private var musicOn:Bool
     private var effectOn:Bool
     private var volumeMusic:Float
     private var volumeEffect:Float
+
+    // Info di gioco salvate
+    private var level:Int
+    private var experience:CGFloat
+    private var highscore:Int
     
     // Info di gioco aleatorie
     private var gold:Int
@@ -34,13 +39,15 @@ class JDSAccountInfo{
     // ----------------------------------------------------------------
 
     private struct Data{
-        private let documentDir:NSString
+        let documentDir: NSString
+        let fileName: String
         let fullPath:String
         let plist:NSMutableDictionary
         
         init(){
             documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
-            fullPath = documentDir.appendingPathComponent("userinfo.plist")
+            fileName = "userinfo.plist"
+            fullPath = documentDir.appendingPathComponent(fileName)
             guard let plist = NSMutableDictionary(contentsOfFile: fullPath) else {
                 fatalError("plist is nil - Check JDSAccountInfo.swift")
             }
@@ -56,19 +63,15 @@ class JDSAccountInfo{
         // Inizializzazione di tutti gli oggetti che si sono instanziati
         // ----------------------------------------------------------------
 
+        musicOn = true
+        effectOn = true
+        volumeMusic = 1.0
+        volumeEffect = 1.0
+
         level = 0
         gold = 0
         experience = 0.0
         highscore = 0
-        
-        musicOn = true
-        effectOn = true
-        volumeMusic = 10.0
-        volumeEffect = 10.0
-        
-        //UserDefaults.standard.set(value, forKey: kScore)
-        //UserDefaults.standard.set(value, forKey: kBestScore)
-
 
         // ----------------------------------------------------------------
 
@@ -83,25 +86,46 @@ class JDSAccountInfo{
         // Caricamento di tutti gli oggetti che si sono instanziati
         // ----------------------------------------------------------------
 
-        level = data.plist.value(forKey: "Level") as! Int
-        gold = data.plist.value(forKey: "Coin") as! Int
-        experience = data.plist.value(forKey: "Experience") as! CGFloat
-        highscore = data.plist.value(forKey: "Highscore") as! Int
-        
-        musicOn = data.plist.value(forKey: "MusicOn") as! Bool
-        effectOn = data.plist.value(forKey: "EffectOn") as! Bool
-        volumeMusic = data.plist.value(forKey: "VolumeMusic") as! Float
-        volumeEffect = data.plist.value(forKey: "VolumeEffect") as! Float
+        musicOn = data.plist.value(forKey: kMusicOn) as! Bool
+        effectOn = data.plist.value(forKey: kEffectOn) as! Bool
+        volumeMusic = data.plist.value(forKey: kVolumeMusic) as! Float
+        volumeEffect = data.plist.value(forKey: kVolumeEffect) as! Float
 
         // ----------------------------------------------------------------
 
-        return (true, "No error")
+        return ErrorReturnCodeOk
+    }
+    /*
+    func prepareToSave() {
+        musicOn = UserDefaults.standard.bool(forKey: kMusicState)
+        effectOn = UserDefaults.standard.bool(forKey: kEffectState)
+        volumeMusic = UserDefaults.standard.float(forKey: kMusicVolume)
+        volumeEffect = UserDefaults.standard.float(forKey: kEffectVolume)
+    }
+ */
+    
+    func save() -> ErrorReturnCode {
+        
+        data.plist.setValue(musicOn, forKey: kMusicOn)
+        data.plist.setValue(effectOn, forKey: kEffectOn)
+        data.plist.setValue(volumeMusic, forKey: kVolumeMusic)
+        data.plist.setValue(volumeEffect, forKey: kVolumeEffect)
+
+        if !data.plist.write(toFile: data.fullPath, atomically: false){
+            return (false, "Saving Error - AccountInfo.selectToonIndex")
+        }
+        return ErrorReturnCodeOk
+
     }
     
-    func save(){
-        if !data.plist.write(toFile: data.fullPath, atomically: false){
-            print("Saving Error - AccountInfo.selectToonIndex")
-        }
+    func hardReset()  -> ErrorReturnCode {
+        
+        musicOn = true
+        effectOn = true
+        volumeMusic = 1.0
+        volumeEffect = 1.0
+
+        return save()
     }
 
     // ----------------------------------------------------------------
@@ -110,33 +134,32 @@ class JDSAccountInfo{
     // ----------------------------------------------------------------
 
     // UI Object
-    
-    internal func getGoldBalance() -> Int{
-        return self.gold
+    func setMusicOn(_ stato: Bool){
+        musicOn = stato
     }
-    
-    func setScore(_ value: Int) {
-        
-        if value > getBestScore() {
-            setBestScore(value)
-        }
-        
-        UserDefaults.standard.set(value, forKey: kScore)
-        UserDefaults.standard.synchronize()
+    func getMusicOn() -> Bool{
+        return musicOn
     }
 
-    func getScore() -> Int {
-        return UserDefaults.standard.integer(forKey: kScore)
+    func setEffectOn(_ stato: Bool){
+        effectOn = stato
+    }
+    func getEffectOn() -> Bool{
+        return effectOn
+    }
+
+    func setVolumeMusic(_ volume: Float){
+        volumeMusic = volume
+    }
+    func getVolumeMusic() -> Float{
+        return volumeMusic
     }
     
-    func getBestScore() -> Int {
-        return UserDefaults.standard.integer(forKey: kBestScore)
+    func setVolumeEffect(_ volume: Float){
+        volumeEffect = volume
     }
-    
-    func setBestScore(_ value: Int) {
-        
-        UserDefaults.standard.set(value, forKey: kBestScore)
-        UserDefaults.standard.synchronize()
+    func getVolumeEffect() -> Float{
+        return volumeEffect
     }
 
     // ----------------------------------------------------------------

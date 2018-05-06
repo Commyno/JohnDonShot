@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>VolumeEffect</key>
-	<integer>10</integer>
+	<integer>1</integer>
 	<key>VolumeMusic</key>
-	<integer>10</integer>
+	<integer>1</integer>
 	<key>EffectOn</key>
 	<true/>
 	<key>MusicOn</key>
