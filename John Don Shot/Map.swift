@@ -19,8 +19,8 @@ class Map: NSObject{
     private var currIndex:Int
     private var maxTexture:Int
     
-    private var topLabel: SKLabelNode
-    private var bottomLabel: SKLabelNode
+//    private var topLabel: SKLabelNode
+//    private var bottomLabel: SKLabelNode
 
     let top:SKSpriteNode
     let bottom:SKSpriteNode
@@ -35,8 +35,8 @@ class Map: NSObject{
         currIndex = randomInt(min: 0, max: maxTexture - 1)
         maptextures = maps
 
-        topLabel = SKLabelNode(text: "prova")
-        bottomLabel = SKLabelNode(text: "prova")
+//        topLabel = SKLabelNode(text: "prova")
+//        bottomLabel = SKLabelNode(text: "prova")
 
         if maxTexture > 1{
             bottomTexture = maptextures[0]
@@ -54,8 +54,8 @@ class Map: NSObject{
         bottom.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         bottom.position = CGPoint(x: ScreenSize.width/2, y: 0) //bottom.size.height/2)
         bottom.zPosition = -5
-        bottomLabel.position = bottom.position
-        bottomLabel.zPosition = 0
+//        bottomLabel.position = bottom.position
+//        bottomLabel.zPosition = 0
 
         top = SKSpriteNode()
         top.texture = topTexture
@@ -63,15 +63,15 @@ class Map: NSObject{
         top.anchorPoint = CGPoint(x: 0.5, y: 0)
         top.position = CGPoint(x: ScreenSize.width/2, y: bottom.position.y + bottom.size.height)
         top.zPosition = -5
-        topLabel.position = top.position
-        topLabel.zPosition = 0
+//        topLabel.position = top.position
+//        topLabel.zPosition = 0
 
         (top.alpha, bottom.alpha) = (0.0, 0.0)
         print(scene)
         scene.addChild(top)
         scene.addChild(bottom)
-        scene.addChild(topLabel)
-        scene.addChild(bottomLabel)
+//        scene.addChild(topLabel)
+//        scene.addChild(bottomLabel)
 
     }
     
@@ -101,15 +101,15 @@ class Map: NSObject{
         if (bottom.position.y <= -bottom.size.height){
             bottom.texture = getNextTexture()
             bottom.position.y = top.position.y + top.size.height
-            bottomLabel.text = "Numero: \(currIndex)"
+//            bottomLabel.text = "Numero: \(currIndex)"
         }
         else if top.position.y <= -top.size.height{
             top.texture = getNextTexture()
             top.position.y = bottom.position.y + bottom.size.height
-            topLabel.text = "Numero: \(currIndex)"
+//            topLabel.text = "Numero: \(currIndex)"
         }
-        bottomLabel.position = bottom.position
-        topLabel.position = top.position
+//        bottomLabel.position = bottom.position
+//        topLabel.position = top.position
 
     }
 

@@ -10,13 +10,13 @@
 	<true/>
 	<key>MusicOn</key>
 	<true/>
-	<key>Coin</key>
+	<key>Level</key>
 	<integer>0</integer>
 	<key>Experience</key>
 	<integer>0</integer>
 	<key>Highscore</key>
 	<integer>0</integer>
-	<key>Level</key>
+	<key>CurrentCharacter</key>
 	<integer>0</integer>
 </dict>
 </plist>

@@ -1,5 +1,5 @@
 //
-//  JDSAccountInfo.swift
+//  AccountInfo.swift
 //  John Don Shot
 //
 //  Created by Giovanni on 20/04/18.
@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class JDSAccountInfo{
+class AccountInfo{
     
     // ----------------------------------------------------------------
     // Inserire di seguito le info relative al gioco che si sta creando
@@ -20,6 +20,13 @@ class JDSAccountInfo{
     private let kEffectOn = "EffectOn"
     private let kVolumeMusic = "VolumeMusic"
     private let kVolumeEffect = "VolumeEffect"
+    
+    private let kLevel = "Level"
+    private let kExperience = "Experience"
+    private let kHighscore = "Highscore"
+    private let kCurrentCharacter = "CurrentCharacter"
+    private let kCharacters = "Characters"
+
 
     // Settaggi di gioco salgate
     private var musicOn:Bool
@@ -29,11 +36,25 @@ class JDSAccountInfo{
 
     // Info di gioco salvate
     private var level:Int
-    private var experience:CGFloat
+    private var experience:Int
     private var highscore:Int
-    
+    private var currentCharacterIndex:Int
+    //private var characters:[Character]
+
+    struct character: Codable {
+        var Title: String
+        var Experience: Int
+        var Level: Int
+        var BulletLevel: Int
+    }
+    struct characters: Codable {
+        var Alpha: character
+        var Beta: character
+    }
+    private var chars:characters
+
     // Info di gioco aleatorie
-    private var gold:Int
+    // private var gold:Int
     
     
     // ----------------------------------------------------------------
@@ -48,6 +69,8 @@ class JDSAccountInfo{
             documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
             fileName = "userinfo.plist"
             fullPath = documentDir.appendingPathComponent(fileName)
+            //let url = Bundle.main.url(forResource: "userinfo", withExtension: "plist")
+            //guard let plist = NSDictionary(contentsOf: url!) as? NSMutableDictionary else {
             guard let plist = NSMutableDictionary(contentsOfFile: fullPath) else {
                 fatalError("plist is nil - Check JDSAccountInfo.swift")
             }
@@ -69,10 +92,18 @@ class JDSAccountInfo{
         volumeEffect = 1.0
 
         level = 0
-        gold = 0
-        experience = 0.0
+        experience = 0
         highscore = 0
-
+        currentCharacterIndex = 0
+        chars = characters(Alpha:character(Title: "Titolo",
+                                           Experience: 0,
+                                           Level: 0,
+                                           BulletLevel: 0),
+                           Beta:character(Title: "Titolo",
+                                          Experience: 0,
+                                          Level: 0,
+                                          BulletLevel: 0))
+        
         // ----------------------------------------------------------------
 
         data = Data()
@@ -91,26 +122,32 @@ class JDSAccountInfo{
         volumeMusic = data.plist.value(forKey: kVolumeMusic) as! Float
         volumeEffect = data.plist.value(forKey: kVolumeEffect) as! Float
 
+        // Caricamento dei personaggi usati
+        level = data.plist.value(forKey: kLevel) as! Int
+        experience = data.plist.value(forKey: kExperience) as! Int
+        highscore = data.plist.value(forKey: kHighscore) as! Int
+        currentCharacterIndex = data.plist.value(forKey: kCurrentCharacter) as! Int
+        //chars = data.plist.value(forKey: "Characters") as! characters
+
         // ----------------------------------------------------------------
 
         return ErrorReturnCodeOk
     }
-    /*
-    func prepareToSave() {
-        musicOn = UserDefaults.standard.bool(forKey: kMusicState)
-        effectOn = UserDefaults.standard.bool(forKey: kEffectState)
-        volumeMusic = UserDefaults.standard.float(forKey: kMusicVolume)
-        volumeEffect = UserDefaults.standard.float(forKey: kEffectVolume)
-    }
- */
-    
+
     func save() -> ErrorReturnCode {
         
         data.plist.setValue(musicOn, forKey: kMusicOn)
         data.plist.setValue(effectOn, forKey: kEffectOn)
         data.plist.setValue(volumeMusic, forKey: kVolumeMusic)
         data.plist.setValue(volumeEffect, forKey: kVolumeEffect)
+        
+        data.plist.setValue(level, forKey: kLevel)
+        data.plist.setValue(experience, forKey: kExperience)
+        data.plist.setValue(highscore, forKey: kHighscore)
+        data.plist.setValue(currentCharacterIndex, forKey: kCurrentCharacter)
 
+        //data.plist.setValue(chars, forKey: kCharacters)
+        
         if !data.plist.write(toFile: data.fullPath, atomically: false){
             return (false, "Saving Error - AccountInfo.selectToonIndex")
         }
@@ -125,6 +162,11 @@ class JDSAccountInfo{
         volumeMusic = 1.0
         volumeEffect = 1.0
 
+        level = 0
+        experience = 0
+        highscore = 0
+        currentCharacterIndex = 0
+
         return save()
     }
 
@@ -133,7 +175,7 @@ class JDSAccountInfo{
     // per permettere il recupero del valore esternamente
     // ----------------------------------------------------------------
 
-    // UI Object
+    // Settings Object
     func setMusicOn(_ stato: Bool){
         musicOn = stato
     }
@@ -162,6 +204,21 @@ class JDSAccountInfo{
         return volumeEffect
     }
 
+    // Character Object
+    func getCurrentCharacter() -> character{
+        return chars.Alpha
+    }
+    func getCurrentCharacterIndex() -> Int{
+        return currentCharacterIndex
+    }
+    func selectCharacterIndex(index: Int){
+        currentCharacterIndex = index
+        data.plist.setValue(index, forKey: "CurrentCharacter")
+        if !data.plist.write(toFile: data.fullPath, atomically: false){
+            print("Saving Error - AccountInfo.selectToonIndex")
+        }
+    }
+    
     // ----------------------------------------------------------------
 
 }

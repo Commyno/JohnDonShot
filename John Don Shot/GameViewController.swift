@@ -143,8 +143,6 @@ class GameViewController: UIViewController {
 
         let loadStatus:(LoadStatus, String) = (.Normal, "No errors")
 
-        /*
-
         // Caricamento del file originale di userinfo.plist
         let fullPathName = documentDir.appendingPathComponent("userinfo.plist")
         
@@ -175,7 +173,6 @@ class GameViewController: UIViewController {
         }
         
         clientData = virtualPList
-         */
 
         return loadStatus
     }

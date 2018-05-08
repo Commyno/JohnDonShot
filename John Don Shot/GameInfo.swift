@@ -24,7 +24,7 @@ class GameInfo: GameInfoDelegate{
 
     // Main Variables
     weak fileprivate var mainScene:SKScene?
-    fileprivate var account:JDSAccountInfo
+    fileprivate var account:AccountInfo
     fileprivate var timer:Timer?
 
     // Secondary Variables
@@ -32,6 +32,7 @@ class GameInfo: GameInfoDelegate{
     
     // Public Variables
     var map:Map?
+    var character: Character?
 
     //
     // Init
@@ -39,7 +40,7 @@ class GameInfo: GameInfoDelegate{
     
     init(){
 
-        account = JDSAccountInfo()
+        account = AccountInfo()
         gamestate = .NoState
 
     }
@@ -130,6 +131,7 @@ class GameInfo: GameInfoDelegate{
         case .Start:
             // Load Map
             map = Map(maps: global.getTextures(textures: .Map_Base), scene: mainscene)
+            character = Character(char: .Alpha, scene: mainscene)
             
             // Applica una sequeza di azioni
             self.map!.run()
@@ -142,11 +144,21 @@ class GameInfo: GameInfoDelegate{
         }
     }
 
-    
+    //
+    // Public Functions:
+    //
+    /*
+    internal func getCurrentCharacter() -> Character{
+        return account.getCurrentCharacter()
+    }
+    internal func getCurrentCharacterNode() -> SKSpriteNode{
+        return account.getCurrentCharacter().getNode()
+    }
+    */
     //
     // Game play
     //
-        
+
     func setScore(_ value: Int) {
         
         if value > getBestScore() {
@@ -168,6 +180,10 @@ class GameInfo: GameInfoDelegate{
     
     func getBestScore() -> Int {
         return UserDefaults.standard.integer(forKey: kBestScore)
+    }
+    
+    func getCurrentCharacterNode() -> SKSpriteNode{
+        return character!.getNode()
     }
 
     //
